@@ -1,6 +1,6 @@
 # React Quiz App
 
-![React Quiz App](path_to_screenshot)
+![React Quiz App](./src/assets/ReactQuizApp.png)
 
 ## Overview
 
