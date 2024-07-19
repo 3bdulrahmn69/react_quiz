@@ -1,19 +1,15 @@
-import PropTypes from 'prop-types';
 import Options from './Options';
+import { useQuestions } from '../Contexts/questionsContext';
 
-const Questions = ({ Question, dispatch, answer }) => {
+const Questions = () => {
+  const { questions, index } = useQuestions();
+
   return (
     <div>
-      <h4>{Question.question}</h4>
-      <Options question={Question} dispatch={dispatch} answer={answer} />
+      <h4>{questions[index].question}</h4>
+      <Options />
     </div>
   );
-};
-
-Questions.propTypes = {
-  Question: PropTypes.object.isRequired,
-  dispatch: PropTypes.func.isRequired,
-  answer: PropTypes.number,
 };
 
 export default Questions;

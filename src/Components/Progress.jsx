@@ -1,9 +1,14 @@
-import PropTypes from 'prop-types';
+import { useQuestions } from '../Contexts/questionsContext';
 
-const Progress = ({ numQuestions, index, points, maxPoints, answer }) => {
+const Progress = () => {
+  const { numQuestions, index, points, maxPoints, answer } = useQuestions();
+
   return (
     <header className="progress">
-      <progress value={index + Number(answer !== null)} max={numQuestions}></progress>
+      <progress
+        value={index + Number(answer !== null)}
+        max={numQuestions}
+      ></progress>
       <p>
         Question <strong>{index + 1}</strong>/{numQuestions}
       </p>
@@ -12,14 +17,6 @@ const Progress = ({ numQuestions, index, points, maxPoints, answer }) => {
       </p>
     </header>
   );
-};
-
-Progress.propTypes = {
-  numQuestions: PropTypes.number.isRequired,
-  index: PropTypes.number.isRequired,
-  points: PropTypes.number.isRequired,
-  maxPoints: PropTypes.number.isRequired,
-  answer: PropTypes.number,
 };
 
 export default Progress;

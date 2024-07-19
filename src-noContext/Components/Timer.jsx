@@ -1,8 +1,7 @@
+import PropTypes from 'prop-types';
 import { useEffect } from 'react';
-import { useQuestions } from '../Contexts/questionsContext';
 
-const Timer = () => {
-  const { dispatch, seconds } = useQuestions();
+const Timer = ({ dispatch, seconds }) => {
   const minutes = Math.floor(seconds / 60);
   const secondsLeft = seconds % 60;
 
@@ -22,5 +21,9 @@ const Timer = () => {
   );
 };
 
+Timer.propTypes = {
+  dispatch: PropTypes.func.isRequired,
+  seconds: PropTypes.number.isRequired,
+};
 
 export default Timer;

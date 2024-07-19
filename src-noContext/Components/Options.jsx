@@ -1,9 +1,7 @@
-import { useQuestions } from '../Contexts/questionsContext';
+import PropTypes from 'prop-types';
 
-const Options = () => {
-  const { questions, index, dispatch, answer } = useQuestions();
+const Options = ({ question, dispatch, answer }) => {
   const hasAnswer = answer !== null;
-  const question = questions[index];
 
   return (
     <div className="options">
@@ -25,6 +23,12 @@ const Options = () => {
       ))}
     </div>
   );
+};
+
+Options.propTypes = {
+  question: PropTypes.object.isRequired,
+  dispatch: PropTypes.func.isRequired,
+  answer: PropTypes.number,
 };
 
 export default Options;
